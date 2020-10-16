@@ -1,0 +1,108 @@
+/*Global settings*/
+* {
+    box-sizing: border-box;
+    padding: 0px;
+    margin: 0px;
+}
+html,
+body {
+    height: 100%;
+}
+body{
+    font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji;
+    font-size: 14px;
+    line-height: 1.5;
+    display: flex;
+    flex-direction: column;
+}
+.serif {
+    font-family: "Times New Roman", Times, serif;
+}
+
+.sansserif {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.monospace {
+    font-family: "Lucida Console", Courier, monospace;
+}
+img{
+    width: 100px;
+    height: 100px;
+}
+ul{
+    list-style: none;
+}
+.img--full{
+    width: 100%;
+    height: 100%;
+}
+.rflex{
+    flex-direction: row;
+}
+.cflex{
+    flex-direction: column;
+}
+
+/*Header*/
+.Header {
+    padding: 16px 24px;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 1.5;
+    color: hsla(0,0%,100%,.7);
+    background-color: #24292e;
+    flex-direction: row;
+}
+.Header, .Header-item {
+    display: flex;
+    align-items: center;
+    flex-wrap: nowrap;
+}
+.Header-item{
+    margin-right: 24px;
+    align-self: stretch;
+}
+.Header-item--full {
+    flex: auto;
+}
+.Header-item--mr_0 {
+    margin-right: 0px;
+}
+.Header-pic {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+}
+.Header-link {
+    color: white;
+    margin-right: 24px;
+    text-decoration: none;
+}
+.Header-link:hover {
+    color: rgb(216, 216, 216);
+}
+.Header-link--mr_0{
+    margin-right: 0px;
+}
+.dropdown-caret{
+    display: inline-block;
+    width: 0;
+    height: 0;
+    vertical-align: middle;
+    content: "";
+    border-top-style: solid;
+    border-top-width: 4px;
+    border-right: 4px solid transparent;
+    border-bottom: 0 solid transparent;
+    border-left: 4px solid transparent;
+}
+
+/*Content*/
+.content{
+    display: flex;
+    flex: auto;
+    background-image: url("src/background.jpg");
+    background-size: cover;
+    font-size: 28px;
+}
