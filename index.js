@@ -35,6 +35,7 @@ function expanding(){
         treenode_buttons[i].addEventListener("click", function(){
             updSlider(i)
         })
+        treenode_buttons[i].style.cursor = "pointer"
     }
     for(let i = 0; i < sliding_circles.length; i++){
         sliding_circles[i].addEventListener("click", function(){
