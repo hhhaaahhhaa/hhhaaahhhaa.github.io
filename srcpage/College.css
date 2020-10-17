@@ -54,14 +54,34 @@ ul{
     background-color: #24292e;
     flex-direction: row;
 }
-.Header, .Header-item {
+.Header {
     display: flex;
     align-items: center;
     flex-wrap: nowrap;
 }
 .Header-item{
+    display: flex;
+    align-items: center;
     margin-right: 24px;
     align-self: stretch;
+}
+.nav-bar, .nav-item{
+    display: flex;
+    position: relative;
+}
+.dropdown {
+    cursor: pointer;
+}
+.dropdown-menu{
+    flex-direction: column;
+    width: max-content;
+    position: absolute;
+    top: 36px;
+    border: 1px solid black;
+    padding: 4px 0px;
+    background-color: white;
+    border-radius: 7px;
+    z-index: 2;
 }
 .Header-item--full {
     flex: auto;
@@ -84,6 +104,15 @@ ul{
 }
 .Header-link--mr_0{
     margin-right: 0px;
+}
+.Header-dropdown-link{
+    font-weight: 400;
+    color: black;
+    padding: 4px 16px;
+    text-decoration: none;
+}
+.Header-dropdown-link:hover{
+    background-color: rgb(216, 216, 216);;
 }
 .dropdown-caret{
     display: inline-block;
