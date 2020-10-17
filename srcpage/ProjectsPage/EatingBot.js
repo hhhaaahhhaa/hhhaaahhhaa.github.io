@@ -24,3 +24,13 @@ function init_menu(){
 }
 
 init_menu()
+
+let data = document.getElementsByClassName("data")[0]
+
+for(let i = 0; i < 4;i++){
+    node = document.createElement("img")
+    node.style.top = `${(4*i)}px`
+    node.style.left = `${(4*i)}px`
+    node.src = `./src/data${i + 1}.png`
+    data.appendChild(node)
+}

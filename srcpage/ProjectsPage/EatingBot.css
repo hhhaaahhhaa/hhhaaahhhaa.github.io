@@ -133,5 +133,73 @@ ul{
     flex: auto;
     background-image: url("src/background.jpg");
     background-size: cover;
+    font-size: 22px;
+
+    padding: 24px;
+}
+.intro{
+    width: 40%;
+}
+.intro > p{
+    padding: 8px;
+}
+.intro-img-box{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+.intro-img-box > img{
+    height: auto;
+    width: auto;
+}
+
+.info{
+    display: flex;
+    flex: auto;
+    margin-left: 24px;
+    justify-content: center;
+    align-items: center;
+}
+.info-row{
+    display: flex;
+    height: 40%;
+}
+.info-item{
+    display: flex;
+    width: 20vw;
+    margin: 8px;
+    padding: 4px;
+    border: 2px solid red;
+    border-radius: 7px;
+}
+.info-item--big{
+    display: flex;
+    width: 30vw;
+    height: 18vw;
+}
+.info-item > p{
+    font-weight: 600;
     font-size: 28px;
+}
+.data{
+    display: flex;
+    flex: auto;
+    position: relative;
+}
+.data > img{
+    position: absolute;
+    width: auto;
+    height: auto;
+    max-width: 90%;
+    max-height: 90%;
+    border: 1px solid black;
+}
+.img-box{
+    display: flex;
+    flex: auto;
+    justify-content: center;
+}
+.img-box > img{
+    width: 80%;
+    height: 80%;
 }
