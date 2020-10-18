@@ -133,5 +133,16 @@ ul{
     flex: auto;
     background-image: url("src/background.jpg");
     background-size: cover;
-    font-size: 28px;
+    font-size: 22px;
+
+    padding: 24px;
+}
+.intro{
+    width: 50%;
+}
+.intro > p{
+    padding: 8px;
+}
+.intro > ul{
+    font-size: 20px;
 }
