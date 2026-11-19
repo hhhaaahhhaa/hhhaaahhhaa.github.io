@@ -42,7 +42,7 @@ author_profile: true
     var trips = {{ trips | jsonify }} || [];
     var el = document.getElementById("travel-map");
     if (!window.L || !el) return;
-    // Static whole-world view: no dragging, zooming or wrapping.
+    /* Static whole-world view: no dragging, zooming or wrapping. */
     var WORLD = [[-58, -180], [80, 180]];
     var map = L.map(el, {
       zoomControl: false, dragging: false, scrollWheelZoom: false, doubleClickZoom: false,
@@ -62,7 +62,7 @@ author_profile: true
     }
     trips.forEach(function (t) {
       if (!t.latlng || !t.latlng.length) return;
-      // latlng is [lat, lng] or, for a multi-city trip, [[lat, lng], [lat, lng], ...]
+      /* latlng is [lat, lng] or, for a multi-city trip, [[lat, lng], [lat, lng], ...] */
       var points = Array.isArray(t.latlng[0]) ? t.latlng : [t.latlng];
       points.forEach(function (p) {
         if (!p || p.length !== 2) return;
@@ -71,6 +71,6 @@ author_profile: true
           .addTo(map);
       });
     });
-    if (homeDot) homeDot.addTo(map); // added last so it draws on top of nearby trips
+    if (homeDot) homeDot.addTo(map); /* added last so it draws on top of nearby trips */
   })();
 </script>
