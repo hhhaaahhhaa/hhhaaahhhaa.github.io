@@ -1,14 +1,20 @@
-# Update / news, newest first. `text` is Markdown.
-# `date` is free text (e.g. "2026/08"). Entries with only a year are drafts from the CV —
+# Update / news, newest first. `text` is Markdown; `text_zh` is the 繁體中文 version
+# (paper titles and conference names stay English).
+# `date` is free text (e.g. "2026/08"). Entries with only a year are drafts from the CV -
 # fill in the month when you know it.
 
 - date: "2026/08"
   text: "Joined **Meta Superintelligence Lab** as a Research Scientist Intern (Voice Modeling Team)."
+  text_zh: "加入 **Meta Superintelligence Lab** 擔任研究科學家實習生（Voice Modeling Team）。"
 - date: "2026"
   text: "*Rethinking Entropy Minimization in Test-Time Adaptation for Autoregressive Models* accepted by **INTERSPEECH 2026**."
+  text_zh: "*Rethinking Entropy Minimization in Test-Time Adaptation for Autoregressive Models* 獲 **INTERSPEECH 2026** 接受。"
 - date: "2025"
   text: "*SUTA-LM* accepted by **ASRU 2025**."
+  text_zh: "*SUTA-LM* 獲 **ASRU 2025** 接受。"
 - date: "2024/09"
   text: "Transferred from the M.S. program to the Ph.D. program at NTU."
+  text_zh: "由國立臺灣大學碩士班逕讀博士班。"
 - date: "2024"
   text: "*Continual Test-time Adaptation for End-to-end Speech Recognition on Noisy Speech* accepted by **EMNLP 2024**."
+  text_zh: "*Continual Test-time Adaptation for End-to-end Speech Recognition on Noisy Speech* 獲 **EMNLP 2024** 接受。"

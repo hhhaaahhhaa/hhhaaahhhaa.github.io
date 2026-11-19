@@ -12,6 +12,15 @@
     }
     if (t === "dark") document.documentElement.setAttribute("data-theme", "dark");
   })();
+  /* Apply the saved language (English by default) before first paint */
+  (function () {
+    var l = null;
+    try { l = localStorage.getItem("lang"); } catch (e) {}
+    if (l === "zh") {
+      document.documentElement.setAttribute("data-lang", "zh");
+      document.documentElement.setAttribute("lang", "zh-Hant");
+    }
+  })();
 </script>
 
 <link rel="apple-touch-icon" sizes="57x57" href="{{ base_path }}/images/apple-touch-icon-57x57.png?v=M44lzPylqQ">

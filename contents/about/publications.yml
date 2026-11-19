@@ -4,6 +4,7 @@
 # links: optional extra links; any label works (paper, code, demo, ...).
 
 note: "See Google Scholar for the full list. * indicates equal contribution."
+note_zh: "完整論文列表請見 Google Scholar。* 表示貢獻相同。"
 
 items:
   - title: "Rethinking Entropy Minimization in Test-Time Adaptation for Autoregressive Models"

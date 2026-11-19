@@ -1,0 +1,23 @@
+{%- comment -%}
+  Bilingual text. Usage:
+    {% include t.html en=item.text zh=item.text_zh md="inline" %}
+  md: "inline" (Markdown, no <p>), "block" (Markdown paragraphs), or omitted (plain text).
+  When zh is empty, only the English text is output (shown in both languages).
+  Which language shows is decided by <html data-lang>, see _sass/_i18n.scss.
+{%- endcomment -%}
+{%- assign _en = include.en -%}
+{%- assign _zh = include.zh -%}
+{%- assign _tag = "span" -%}
+{%- if include.md == "inline" -%}
+  {%- assign _en = _en | markdownify | remove: "<p>" | remove: "</p>" | strip -%}
+  {%- if _zh -%}{%- assign _zh = _zh | markdownify | remove: "<p>" | remove: "</p>" | strip -%}{%- endif -%}
+{%- elsif include.md == "block" -%}
+  {%- assign _tag = "div" -%}
+  {%- assign _en = _en | markdownify -%}
+  {%- if _zh -%}{%- assign _zh = _zh | markdownify -%}{%- endif -%}
+{%- endif -%}
+{%- if _zh and _zh != "" -%}
+<{{ _tag }} class="i18n-en">{{ _en }}</{{ _tag }}><{{ _tag }} class="i18n-zh" lang="zh-Hant">{{ _zh }}</{{ _tag }}>
+{%- else -%}
+{{ _en }}
+{%- endif -%}

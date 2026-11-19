@@ -6,7 +6,7 @@
       <nav id="site-nav" class="greedy-nav">
         <button><div class="navicon"></div></button>
         <ul class="visible-links">
-          <li class="masthead__menu-item masthead__menu-item--lg"><a href="{{ base_path }}/">{{ site.title }}</a></li>
+          <li class="masthead__menu-item masthead__menu-item--lg"><a href="{{ base_path }}/">{% include t.html en=site.title zh=site.data.profile.name_zh %}</a></li>
           {% for link in site.data.navigation.main %}
             {% if link.url contains 'http' %}
               {% assign domain = '' %}
@@ -20,6 +20,10 @@
       </nav>
       <!-- Outside #site-nav: the greedy-nav script binds to every button inside it. -->
       <div class="masthead__actions">
+        <!-- Language switch: shows the language you'd switch TO -->
+        <button type="button" id="lang-toggle" class="lang-toggle" aria-label="Switch language / 切換語言" title="Switch language / 切換語言">
+          <span class="i18n-en" lang="zh-Hant">中</span><span class="i18n-zh">EN</span>
+        </button>
         <button type="button" id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode" title="Toggle dark mode">
           <i id="theme-icon" class="fas fa-sun" aria-hidden="true"></i>
         </button>
@@ -55,6 +59,14 @@
       paint();
     });
     paint();
+
+    /* Language switch (the saved language is applied earlier in head/custom.html) */
+    document.getElementById("lang-toggle").addEventListener("click", function () {
+      var zh = root.getAttribute("data-lang") !== "zh";
+      if (zh) { root.setAttribute("data-lang", "zh"); root.setAttribute("lang", "zh-Hant"); }
+      else { root.removeAttribute("data-lang"); root.setAttribute("lang", "{{ site.locale | default: 'en' }}"); }
+      try { localStorage.setItem("lang", zh ? "zh" : "en"); } catch (e) {}
+    });
 
     /* Phone dropdown menu */
     var menuBtn = document.getElementById("mobile-nav-toggle");

@@ -1,11 +1,19 @@
 # Teaching and Services. Same fields as experience.yml; `detail` is Markdown (optional).
+# Fields ending in _zh are the 繁體中文 version. Course names stay English.
 
 - org: "Independent Study in Speech Processing and Machine Learning, NTU"
+  org_zh: "Independent Study in Speech Processing and Machine Learning，國立臺灣大學"
   role: "Teaching Assistant"
+  role_zh: "助教"
   period: "Mar. 2023 – Present"
+  period_zh: "2023年3月 – 至今"
   detail: "Designed assignments for text-to-speech models."
+  detail_zh: "設計 text-to-speech 模型的作業。"
 
 - org: "Academic Services"
+  org_zh: "學術服務"
   role: "Reviewer"
+  role_zh: "審稿人"
   period: "Sep. 2022 – Present"
+  period_zh: "2022年9月 – 至今"
   detail: "IEEE TASLP, ACL Rolling Review, AAAI'23, ICASSP'23'26, INTERSPEECH'23'24'25'26, ASRU'23'25"

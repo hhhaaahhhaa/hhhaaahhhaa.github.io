@@ -6,10 +6,14 @@
 avatar           : "/contents/profile.jpeg"   # path under the site, or a full https:// URL
 avatar_alt       : "/contents/profile2.jpg"   # optional: click the avatar to flip to this one (leave empty to disable)
 name             : "Wei-Ping Huang"
+name_zh          : "黃維坪"   # shown in 繁體中文 mode (sidebar + header title)
 pronouns         : # example: "she/her"
 bio              : "PhD Candidate"
+bio_zh           : "博士候選人"
 location         : "Taipei, Taiwan"
+location_zh      : "臺灣臺北"
 employer         : "National Taiwan University"
+employer_zh      : "國立臺灣大學"
 uri              : # URL
 cv               : "/contents/CV_academic.pdf"   # path under the site, or a full https:// URL
 email            : "thomas1232121@gmail.com"

@@ -14,8 +14,22 @@ intro: |
   He recently worked as a Research Scientist Intern at Meta Superintelligence Lab on efficient speech LLMs.
   Before his Ph.D., he received a B.S. in Mathematics from NTU.
 
+# 繁體中文 version of the intro (shown when the 中 button is on).
+# Proper nouns (companies, labs, conferences, paper titles) and research terms stay English.
+# Keep each Chinese paragraph on ONE line: a line break inside a paragraph shows up as a space.
+intro_zh: |
+  黃維坪目前是國立臺灣大學電信工程學研究所博士候選人，於 Speech Processing and Machine Learning Lab 進行研究，指導教授為李宏毅教授。研究主題為 **test-time adaptation**、**self-supervised learning**、**speech synthesis** 與 **large audio language models**。
+
+  他近期於 Meta Superintelligence Lab 擔任研究科學家實習生，研究高效率的 speech LLMs。攻讀博士之前，他取得國立臺灣大學數學系學士學位。
+
 sections:
   experience: "Research Experience"
   updates: "Update"
   publications: "Selected Publications & Preprints"
   services: "Teaching and Services"
+
+sections_zh:
+  experience: "研究經歷"
+  updates: "最新消息"
+  publications: "精選論文與預印本"
+  services: "教學與服務"

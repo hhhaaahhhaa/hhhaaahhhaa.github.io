@@ -4,4 +4,5 @@
 # Home, shown on the map as a blue dot (trips are orange).
 home:
   place: "Taipei, Taiwan"
+  place_zh: "臺灣臺北"
   latlng: [25.033, 121.565]

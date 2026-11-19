@@ -1,20 +1,35 @@
 # Research Experience, newest first.
 # org / role / period / location are shown as one entry; `detail` is Markdown (optional).
+# Fields ending in _zh are the 繁體中文 version; leave one out to show the English in both.
+# Companies, labs and team names stay English; only the university name is translated.
 
 - org: "Meta Superintelligence Lab (MSL)"
   role: "Research Scientist Intern"
+  role_zh: "研究科學家實習生"
   period: "Aug. 2026 – Nov. 2026"
+  period_zh: "2026年8月 – 2026年11月"
   location: "Menlo Park, USA"
+  location_zh: "美國門洛帕克"
   detail: "Voice Modeling Team, working on efficient speech LLMs."
+  detail_zh: "任職於 Voice Modeling Team，研究高效率的 speech LLMs。"
 
 - org: "Speech Processing and Machine Learning Lab @ NTU"
+  org_zh: "Speech Processing and Machine Learning Lab @ 國立臺灣大學"
   role: "Graduate Researcher (Advisor: Prof. Hung-yi Lee)"
+  role_zh: "研究生研究員（指導教授：李宏毅教授）"
   period: "Jul. 2020 – Present"
+  period_zh: "2020年7月 – 至今"
   location: "Taipei, Taiwan"
+  location_zh: "臺灣臺北"
   detail: "Self-supervised representation learning for speech; efficient language adaptation for speech synthesis; test-time adaptation for ASR."
+  detail_zh: "語音的 self-supervised representation learning；speech synthesis 的高效率語言調適；ASR 的 test-time adaptation。"
 
 - org: "Heimdall Intelligent Technology Co., Ltd."
   role: "AI Engineer Intern"
+  role_zh: "AI 工程師實習生"
   period: "Jul. 2021 – May 2022"
+  period_zh: "2021年7月 – 2022年5月"
   location: "Taipei, Taiwan"
+  location_zh: "臺灣臺北"
   detail: "Built a semi-supervised transfer learning pipeline for vehicle object detection, adapting to new scenes 3x faster than the original pipeline."
+  detail_zh: "建立用於車輛物件偵測的 semi-supervised transfer learning 流程，適應新場景的速度比原流程快 3 倍。"

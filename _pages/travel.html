@@ -24,10 +24,10 @@ author_profile: true
   <li class="trip-card">
     {% if t.cover %}<img class="trip-card__cover" src="{{ t.cover | relative_url }}" alt="{{ t.place }}" loading="lazy">{% endif %}
     <div class="trip-card__body">
-      <div class="trip-card__place">{{ t.place }}</div>
+      <div class="trip-card__place">{% include t.html en=t.place zh=t.place_zh %}</div>
       {% if t.date %}<div class="trip-card__date">{{ t.date }}</div>{% endif %}
-      {% if t.note %}<div class="trip-card__note">{{ t.note | markdownify | remove: '<p>' | remove: '</p>' }}</div>{% endif %}
-      {% if t.post %}<a class="trip-card__post" href="{{ t.post | relative_url }}">Read the story &rarr;</a>{% endif %}
+      {% if t.note %}<div class="trip-card__note">{% include t.html en=t.note zh=t.note_zh md="inline" %}</div>{% endif %}
+      {% if t.post %}<a class="trip-card__post" href="{{ t.post | relative_url }}">{% include t.html en="Read the story →" zh="閱讀遊記 →" %}</a>{% endif %}
     </div>
   </li>
   {% endfor %}
@@ -55,10 +55,16 @@ author_profile: true
     function fitWorld() { map.invalidateSize(); map.fitBounds(WORLD, { padding: [0, 0] }); }
     fitWorld();
     window.addEventListener("resize", fitWorld);
+    /* Tooltip text is computed when shown, so it follows the language switch */
+    function zh() { return document.documentElement.getAttribute("data-lang") === "zh"; }
+    function placeOf(t) { return (zh() && t.place_zh) ? t.place_zh : t.place; }
     var home = {{ c.home | jsonify }};
     if (home && home.latlng && home.latlng.length === 2) {
       var homeDot = L.circleMarker(home.latlng, { radius: 6, weight: 2, color: "#fff", fillColor: "#1f6feb", fillOpacity: 1 })
-        .bindTooltip("Home" + (home.place ? ": " + home.place : ""), { direction: "top", offset: [0, -4] });
+        .bindTooltip(function () {
+          var p = home.place ? placeOf(home) : "";
+          return zh() ? "家" + (p ? "：" + p : "") : "Home" + (p ? ": " + p : "");
+        }, { direction: "top", offset: [0, -4] });
     }
     trips.forEach(function (t) {
       if (!t.latlng || !t.latlng.length) return;
@@ -67,7 +73,7 @@ author_profile: true
       points.forEach(function (p) {
         if (!p || p.length !== 2) return;
         L.circleMarker(p, { radius: 5, weight: 2, color: "#fff", fillColor: "#e4572e", fillOpacity: 1 })
-          .bindTooltip(t.place + (t.date ? " (" + t.date + ")" : ""), { direction: "top", offset: [0, -4] })
+          .bindTooltip(function () { return placeOf(t) + (t.date ? " (" + t.date + ")" : ""); }, { direction: "top", offset: [0, -4] })
           .addTo(map);
       });
     });

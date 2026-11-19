@@ -1,0 +1,11 @@
+/* ==========================================================================
+   English / Traditional Chinese
+   Both languages are in the HTML (via _includes/t.html); <html data-lang="zh">
+   picks which one shows. Toggle: _includes/masthead.html; the saved choice is
+   applied early in _includes/head/custom.html.
+   ========================================================================== */
+
+html:not([data-lang="zh"]) .i18n-zh,
+html[data-lang="zh"] .i18n-en {
+  display: none !important;
+}

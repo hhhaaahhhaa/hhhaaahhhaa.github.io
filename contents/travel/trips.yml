@@ -2,6 +2,7 @@
 # Cards are grouped by year (taken from the first 4 characters of `date`), newest year
 # first, and sorted oldest-to-newest inside each year - so keep dates as "YYYY/MM".
 #   place:  name shown on the card / dot
+#   place_zh: 繁體中文 name (optional; falls back to place)
 #   date:   "YYYY/MM"
 #   latlng: [latitude, longitude] - rough is fine. For a multi-city trip, give a list:
 #           [[lat, lng], [lat, lng]] (one card, one dot per city)
@@ -10,53 +11,66 @@
 #   post:   optional link to a blog post with the full story, e.g. "/blog/2025/09/kyoto/"
 
 - place: "California, US"
+  place_zh: "美國加州"
   date: "2026/08"
   latlng: [37.45, -122.18]
 
 - place: "Hokkaido, Japan"
+  place_zh: "日本北海道"
   date: "2026/04"
   latlng: [43.06, 141.35]
 
 - place: "Hawaii, US"
+  place_zh: "美國夏威夷"
   date: "2025/12"
   latlng: [21.31, -157.86]
 
 - place: "Kyoto, Japan"
+  place_zh: "日本京都"
   date: "2025/09"
   latlng: [35.01, 135.77]
 
 - place: "Kyoto, Japan"
+  place_zh: "日本京都"
   date: "2025/07"
   latlng: [35.01, 135.77]
 
 - place: "Hokkaido, Japan"
+  place_zh: "日本北海道"
   date: "2025/01"
   latlng: [43.06, 141.35]
 
 - place: "Brisbane / Sydney, Australia"
+  place_zh: "澳洲布里斯本／雪梨"
   date: "2024/07"
   latlng: [[-27.47, 153.03], [-33.87, 151.21]]
 
 - place: "Nagano, Japan"
+  place_zh: "日本長野"
   date: "2024/01"
   latlng: [36.65, 138.18]
 
 - place: "Okinawa, Japan"
+  place_zh: "日本沖繩"
   date: "2023/06"
   latlng: [26.21, 127.68]
 
 - place: "Incheon, Korea"
+  place_zh: "韓國仁川"
   date: "2022/09"
   latlng: [37.46, 126.71]
 
 - place: "Cluj-Napoca, Romania"
+  place_zh: "羅馬尼亞克盧日-納波卡"
   date: "2018/07"
   latlng: [46.77, 23.59]
 
 - place: "Tokyo, Japan"
+  place_zh: "日本東京"
   date: "2017/05"
   latlng: [35.68, 139.69]
 
 - place: "Buenos Aires, Argentina"
+  place_zh: "阿根廷布宜諾斯艾利斯"
   date: "2014/12"
   latlng: [-34.60, -58.38]
