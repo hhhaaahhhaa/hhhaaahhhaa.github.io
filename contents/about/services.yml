@@ -1,0 +1,11 @@
+# Teaching and Services. Same fields as experience.yml; `detail` is Markdown (optional).
+
+- org: "Independent Study in Speech Processing and Machine Learning, NTU"
+  role: "Teaching Assistant"
+  period: "Mar. 2023 – Present"
+  detail: "Designed assignments for text-to-speech models."
+
+- org: "Academic Services"
+  role: "Reviewer"
+  period: "Sep. 2022 – Present"
+  detail: "IEEE TASLP, ACL Rolling Review, AAAI'23, ICASSP'23'26, INTERSPEECH'23'24'25'26, ASRU'23'25"

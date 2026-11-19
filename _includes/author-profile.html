@@ -1,16 +1,39 @@
 {% include base_path %}
 
-{% if page.author and site.data.authors[page.author] %}
-  {% assign author = site.data.authors[page.author] %}{% else %}{% assign author = site.author %}
-{% endif %}
+{% comment %} Basic information comes from contents/profile.yml {% endcomment %}
+{% assign author = site.data.profile %}
 
 <div itemscope itemtype="http://schema.org/Person">
 
+  {% comment %} Resolve avatar URLs: full URL as-is, "/path" under the site, bare name under /images/ {% endcomment %}
+  {% assign avatar_first = author.avatar | slice: 0 %}
+  {% if author.avatar contains "://" %}{% assign avatar_src = author.avatar %}
+  {% elsif avatar_first == "/" %}{% assign avatar_src = author.avatar | prepend: base_path %}
+  {% else %}{% assign avatar_src = author.avatar | prepend: "/images/" | prepend: base_path %}{% endif %}
+  {% if author.avatar_alt %}
+    {% assign alt_first = author.avatar_alt | slice: 0 %}
+    {% if author.avatar_alt contains "://" %}{% assign avatar_alt_src = author.avatar_alt %}
+    {% elsif alt_first == "/" %}{% assign avatar_alt_src = author.avatar_alt | prepend: base_path %}
+    {% else %}{% assign avatar_alt_src = author.avatar_alt | prepend: "/images/" | prepend: base_path %}{% endif %}
+  {% endif %}
+
   <div class="author__avatar">
-    {% if author.avatar contains "://" %}
-    	<img src="{{ author.avatar }}" alt="{{ author.name }}">
+    {% if avatar_alt_src %}
+      <button type="button" class="avatar-flip" aria-label="Flip avatar" aria-pressed="false" title="Click me">
+        <span class="avatar-flip__inner">
+          <img class="avatar-flip__face avatar-flip__front" src="{{ avatar_src }}" alt="{{ author.name }}">
+          <img class="avatar-flip__face avatar-flip__back" src="{{ avatar_alt_src }}" alt="" aria-hidden="true">
+        </span>
+      </button>
+      <script>
+        document.querySelectorAll('.avatar-flip').forEach(function (b) {
+          b.addEventListener('click', function () {
+            b.setAttribute('aria-pressed', b.classList.toggle('is-flipped'));
+          });
+        });
+      </script>
     {% else %}
-    	<img src="{{ author.avatar | prepend: "/images/" | prepend: base_path }}" class="author__avatar" alt="{{ author.name }}">
+      <img src="{{ avatar_src }}" alt="{{ author.name }}">
     {% endif %}
   </div>
 
@@ -35,6 +58,10 @@
       {% endif %}
       {% if author.email %}
         <li><a href="mailto:{{ author.email }}"><i class="fas fa-fw fa-envelope icon-pad-right" aria-hidden="true"></i>{{ site.data.ui-text[site.locale].email_label | default: "Email" }}</a></li>
+      {% endif %}
+      {% if author.cv %}
+        {% assign cv_first = author.cv | slice: 0 %}
+        <li><a href="{% if cv_first == '/' %}{{ author.cv | prepend: base_path }}{% else %}{{ author.cv }}{% endif %}" target="_blank" rel="noopener"><i class="ai ai-cv ai-fw icon-pad-right" aria-hidden="true"></i>CV</a></li>
       {% endif %}
 
       <!-- Font Awesome and Academicons icons / Academic websites -->

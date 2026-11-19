@@ -1,0 +1,55 @@
+# Selected Publications & Preprints, newest first.
+# authors: one entry per person; add "*" for equal contribution. "Wei-Ping Huang" is bolded automatically.
+# arxiv: arXiv abs URL, shown as an arXiv icon link (leave empty to hide).
+# links: optional extra links; any label works (paper, code, demo, ...).
+
+note: "See Google Scholar for the full list. * indicates equal contribution."
+
+items:
+  - title: "Rethinking Entropy Minimization in Test-Time Adaptation for Autoregressive Models"
+    authors: ["Wei-Ping Huang*", "Chee-En Yu*", "Guan-Ting Lin", "Hung-yi Lee"]
+    venue: "INTERSPEECH 2026"
+    arxiv: "https://arxiv.org/abs/2605.08186"   # placeholder - replace
+    links: {}
+
+  - title: "SUTA-LM: Bridging Test-Time Adaptation and Language Model Rescoring for Robust ASR"
+    authors: ["Wei-Ping Huang*", "Guan-Ting Lin*", "Hung-yi Lee"]
+    venue: "ASRU 2025"
+    arxiv: "https://arxiv.org/abs/2506.11121"   # placeholder - replace
+    links: {}
+
+  - title: "Continual Test-time Adaptation for End-to-end Speech Recognition on Noisy Speech"
+    authors: ["Guan-Ting Lin*", "Wei-Ping Huang*", "Hung-yi Lee"]
+    venue: "EMNLP 2024"
+    arxiv: "https://arxiv.org/abs/2406.11064"   # placeholder - replace
+    links: {}
+
+  - title: "Maximizing Data Efficiency for Cross-Lingual TTS Adaptation by Self-Supervised Representation Mixing and Embedding Initialization"
+    authors: ["Wei-Ping Huang", "Sung-Feng Huang", "Hung-yi Lee"]
+    venue: "ASRU 2023"
+    arxiv: "https://arxiv.org/abs/2402.01692"   # placeholder - replace
+    links: {}
+
+  - title: "ML-SUPERB: Multilingual Speech Universal Performance Benchmark"
+    authors: ["Jiatong Shi", "Dan Berrebbi", "William Chen", "Ho-Lam Chung", "En-Pei Hu", "Wei-Ping Huang", "Xuankai Chang", "Shang-Wen Li", "Abdelrahman Mohamed", "Hung-yi Lee", "et al."]
+    venue: "INTERSPEECH 2023"
+    arxiv: "https://arxiv.org/abs/2305.10615"   # placeholder - replace
+    links: {}
+
+  - title: "Why We Should Report the Details in Subjective Evaluation of TTS More Rigorously"
+    authors: ["Cheng-Han Chiang", "Wei-Ping Huang", "Hung-yi Lee"]
+    venue: "INTERSPEECH 2023"
+    arxiv: "https://arxiv.org/abs/2306.02044"   # placeholder - replace
+    links: {}
+
+  - title: "On the Utility of Self-supervised Models for Prosody-related Tasks"
+    authors: ["Guan-Ting Lin", "Chi-Luen Feng", "Wei-Ping Huang", "Yuan Tseng", "Tzu-Han Lin", "Chen-An Li", "Hung-yi Lee", "Nigel G. Ward"]
+    venue: "SLT 2022"
+    arxiv: "https://arxiv.org/abs/2210.07185"   # placeholder - replace
+    links: {}
+
+  - title: "Few-Shot Cross-Lingual TTS Using Transferable Phoneme Embedding"
+    authors: ["Wei-Ping Huang", "Sung-Feng Huang", "Hung-yi Lee"]
+    venue: "INTERSPEECH 2022"
+    arxiv: "https://arxiv.org/abs/2206.15427"   # placeholder - replace
+    links: {}

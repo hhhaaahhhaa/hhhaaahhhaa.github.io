@@ -1,0 +1,21 @@
+# Home page: intro + section headings.
+# Rendered by _pages/about.html. Each section's items live in their own file in this folder:
+#   experience.yml   updates.yml   publications.yml   services.yml
+# Images for this page go in this folder and are linked as /contents/about/<file>.
+
+# Markdown. Keep the indentation under "intro: |".
+# DRAFT written from the CV — rewrite in your own voice.
+intro: |
+  Wei-Ping Huang is a Ph.D. candidate in Communication Engineering at National Taiwan University (NTU),
+  working in the Speech Processing and Machine Learning Lab advised by Prof. Hung-yi Lee.
+  His research focuses on **test-time adaptation**, **self-supervised learning**, **speech synthesis**,
+  and **large audio language models**.
+
+  He recently worked as a Research Scientist Intern at Meta Superintelligence Lab on efficient speech LLMs.
+  Before his Ph.D., he received a B.S. in Mathematics from NTU.
+
+sections:
+  experience: "Research Experience"
+  updates: "Update"
+  publications: "Selected Publications & Preprints"
+  services: "Teaching and Services"

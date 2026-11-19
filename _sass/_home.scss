@@ -1,0 +1,62 @@
+/* ==========================================================================
+   Home page (_pages/about.html) - minimal styling, kept separate so it's easy
+   to grow into widgets later.
+   ========================================================================== */
+
+.home-section {
+  margin-top: 2em;
+
+  h2 {
+    margin-top: 0;
+  }
+}
+
+.entry-list,
+.update-list,
+.pub-list {
+  padding-left: 1.2em;
+
+  li {
+    margin-bottom: 0.6em;
+  }
+}
+
+.update-date {
+  font-weight: bold;
+  margin-right: 0.4em;
+}
+
+.pub-note {
+  font-size: 0.875em;
+}
+
+.pub {
+  .pub-title {
+    font-weight: bold;
+  }
+
+  .pub-authors,
+  .pub-links {
+    font-size: 0.875em;
+  }
+
+  .pub-venue {
+    font-size: 0.875em;
+    font-style: italic;
+    font-weight: bold;
+  }
+
+  .pub-links {
+    margin-top: 0.2em;
+  }
+
+  .pub-links a {
+    font-weight: bold;
+    text-decoration: none;
+    margin-right: 0.8em;
+  }
+
+  .pub-link-arxiv {
+    color: #b31b1b; // arXiv red
+  }
+}

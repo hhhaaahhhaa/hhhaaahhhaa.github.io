@@ -1,0 +1,20 @@
+# Research Experience, newest first.
+# org / role / period / location are shown as one entry; `detail` is Markdown (optional).
+
+- org: "Meta Superintelligence Lab (MSL)"
+  role: "Research Scientist Intern"
+  period: "Aug. 2026 – Nov. 2026"
+  location: "Menlo Park, USA"
+  detail: "Voice Modeling Team, working on efficient speech LLMs."
+
+- org: "Speech Processing and Machine Learning Lab @ NTU"
+  role: "Graduate Researcher (Advisor: Prof. Hung-yi Lee)"
+  period: "Jul. 2020 – Present"
+  location: "Taipei, Taiwan"
+  detail: "Self-supervised representation learning for speech; efficient language adaptation for speech synthesis; test-time adaptation for ASR."
+
+- org: "Heimdall Intelligent Technology Co., Ltd."
+  role: "AI Engineer Intern"
+  period: "Jul. 2021 – May 2022"
+  location: "Taipei, Taiwan"
+  detail: "Built a semi-supervised transfer learning pipeline for vehicle object detection, adapting to new scenes 3x faster than the original pipeline."

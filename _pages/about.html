@@ -1,0 +1,76 @@
+---
+permalink: /
+author_profile: true
+---
+{% comment %}
+  Home page shell. All content lives in contents/about/:
+    page.yml (intro + section titles), experience.yml, updates.yml,
+    publications.yml, services.yml
+{% endcomment %}
+{% assign about = site.data.about %}
+{% assign me = site.data.profile.name %}
+
+<section class="home-intro">
+  {{ about.page.intro | markdownify }}
+</section>
+
+<section class="home-section" id="experience">
+  <h2>{{ about.page.sections.experience }}</h2>
+  <ul class="entry-list">
+    {% for e in about.experience %}
+    <li>
+      <strong>{{ e.org }}</strong>{% if e.period %} ({{ e.period }}){% endif %}: {{ e.role }}{% if e.location %}, {{ e.location }}{% endif %}.
+      {% if e.detail %}{{ e.detail | markdownify | remove: '<p>' | remove: '</p>' }}{% endif %}
+    </li>
+    {% endfor %}
+  </ul>
+</section>
+
+<section class="home-section" id="updates">
+  <h2>{{ about.page.sections.updates }}</h2>
+  <ul class="update-list">
+    {% for u in about.updates %}
+    <li><span class="update-date">{{ u.date }}</span> {{ u.text | markdownify | remove: '<p>' | remove: '</p>' }}</li>
+    {% endfor %}
+  </ul>
+</section>
+
+<section class="home-section" id="publications">
+  <h2>{{ about.page.sections.publications }}</h2>
+  {% if about.publications.note %}
+  <p class="pub-note"><em>
+    {% if site.data.profile.googlescholar %}
+      {{ about.publications.note | replace: "Google Scholar", '<a href="__GS__">Google Scholar</a>' | replace: "__GS__", site.data.profile.googlescholar }}
+    {% else %}{{ about.publications.note }}{% endif %}
+  </em></p>
+  {% endif %}
+  <ul class="pub-list">
+    {% for p in about.publications.items %}
+    <li class="pub">
+      <div class="pub-title">{{ p.title }}</div>
+      <div class="pub-authors">
+        {% for a in p.authors %}{% assign bare = a | remove: "*" %}{% if bare == me %}<strong>{{ a }}</strong>{% else %}{{ a }}{% endif %}{% unless forloop.last %}, {% endunless %}{% endfor %}
+      </div>
+      <div class="pub-venue">{{ p.venue }}</div>
+      {% if p.arxiv or p.links.size > 0 %}
+      <div class="pub-links">
+        {% if p.arxiv %}<a href="{{ p.arxiv }}" class="pub-link-arxiv" title="arXiv"><i class="ai ai-arxiv" aria-hidden="true"></i> arXiv</a>{% endif %}
+        {% for l in p.links %}<a href="{{ l[1] }}">{{ l[0] | upcase }}</a>{% endfor %}
+      </div>
+      {% endif %}
+    </li>
+    {% endfor %}
+  </ul>
+</section>
+
+<section class="home-section" id="services">
+  <h2>{{ about.page.sections.services }}</h2>
+  <ul class="entry-list">
+    {% for s in about.services %}
+    <li>
+      <strong>{{ s.org }}</strong>{% if s.period %} ({{ s.period }}){% endif %}: {{ s.role }}.
+      {% if s.detail %}{{ s.detail | markdownify | remove: '<p>' | remove: '</p>' }}{% endif %}
+    </li>
+    {% endfor %}
+  </ul>
+</section>
