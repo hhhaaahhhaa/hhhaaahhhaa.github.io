@@ -56,15 +56,31 @@
     font-weight: 700;
   }
 }
-/* Dark mode toggle (sits left of the greedy-nav hamburger button) */
+/* Header row: [greedy nav (flex)] [actions: dark mode toggle, phone menu button]
+   The nav's width excludes the actions, so greedy-nav measures the space correctly. */
+$mobile-nav-max: 767px; // phones: every tab goes into the dropdown
+
 .masthead__menu {
   position: relative;
+  display: flex;
+  align-items: flex-start;
+
+  > .greedy-nav {
+    flex: 1 1 auto;
+    min-width: 0;
+  }
+}
+
+.masthead__actions {
+  display: flex;
+  align-items: center;
+  flex: 0 0 auto;
+  gap: 0.5rem;
+  height: 2.5rem;
+  margin-left: 0.5rem;
 }
 
 .theme-toggle {
-  position: absolute;
-  top: 0;
-  right: 3.5rem;
   height: 2.5rem;
   width: 2.5rem;
   padding: 0;
@@ -73,7 +89,6 @@
   color: $masthead-link-color;
   font-size: 1.1rem;
   cursor: pointer;
-  z-index: 100;
 
   &:hover {
     color: $masthead-link-color-hover;
@@ -82,5 +97,73 @@
   &:focus-visible {
     outline: 2px solid $link-color;
     outline-offset: 2px;
+  }
+}
+
+/* Phone menu button (same look as the greedy-nav hamburger) */
+.mobile-nav__toggle {
+  display: none;
+  height: 2.5rem;
+  padding: 0 0.5rem;
+  border: 0;
+  background-color: $primary-color;
+  cursor: pointer;
+
+  .navicon {
+    display: block; // it's a <span>; needs a box for its width
+  }
+
+  &:focus-visible {
+    outline: 2px solid $link-color;
+    outline-offset: 2px;
+  }
+}
+
+.mobile-nav {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  z-index: 100;
+  min-width: 12em;
+  margin: 15px 0 0 !important;
+  padding: 5px !important;
+  border: 1px solid $border-color;
+  border-radius: $border-radius;
+  background: $background-color;
+  box-shadow: 0 0 10px rgba(#000, 0.25);
+
+  &[hidden] {
+    display: none;
+  }
+
+  a {
+    display: block;
+    padding: 10px 20px;
+    color: $masthead-link-color;
+    font-size: $type-size-5;
+    text-decoration: none;
+
+    &:hover {
+      color: $masthead-link-color-hover;
+    }
+  }
+}
+
+@media (max-width: $mobile-nav-max) {
+  /* keep only the site title in the bar; hide greedy-nav's own overflow menu */
+  .greedy-nav .visible-links li:not(.masthead__menu-item--lg),
+  .greedy-nav > button,
+  .greedy-nav .hidden-links {
+    display: none !important;
+  }
+
+  .mobile-nav__toggle {
+    display: block;
+  }
+}
+
+@media (min-width: $mobile-nav-max + 1) {
+  .mobile-nav {
+    display: none !important;
   }
 }

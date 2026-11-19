@@ -18,15 +18,28 @@
         </ul>
         <ul class="hidden-links hidden"></ul>
       </nav>
-      <!-- outside #site-nav: the greedy-nav script binds to every button inside it -->
-      <button type="button" id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode" title="Toggle dark mode">
-        <i id="theme-icon" class="fas fa-sun" aria-hidden="true"></i>
-      </button>
+      <!-- Outside #site-nav: the greedy-nav script binds to every button inside it. -->
+      <div class="masthead__actions">
+        <button type="button" id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode" title="Toggle dark mode">
+          <i id="theme-icon" class="fas fa-sun" aria-hidden="true"></i>
+        </button>
+        <!-- Phone menu: on small screens every tab lives in this dropdown -->
+        <button type="button" id="mobile-nav-toggle" class="mobile-nav__toggle" aria-label="Menu" aria-expanded="false" aria-controls="mobile-nav">
+          <span class="navicon"></span>
+        </button>
+      </div>
+      <ul id="mobile-nav" class="mobile-nav" hidden>
+        {% for link in site.data.navigation.main %}
+          {% if link.url contains 'http' %}{% assign domain = '' %}{% else %}{% assign domain = base_path %}{% endif %}
+          <li><a href="{{ domain }}{{ link.url }}">{{ link.title }}</a></li>
+        {% endfor %}
+      </ul>
     </div>
   </div>
 </div>
 <script>
   (function () {
+    /* Dark mode toggle (the saved/system theme is applied earlier in head/custom.html) */
     var root = document.documentElement;
     var btn = document.getElementById("theme-toggle");
     var icon = document.getElementById("theme-icon");
@@ -42,5 +55,17 @@
       paint();
     });
     paint();
+
+    /* Phone dropdown menu */
+    var menuBtn = document.getElementById("mobile-nav-toggle");
+    var menu = document.getElementById("mobile-nav");
+    function setOpen(open) {
+      menu.hidden = !open;
+      menuBtn.setAttribute("aria-expanded", open);
+      menuBtn.classList.toggle("close", open);
+    }
+    menuBtn.addEventListener("click", function (e) { e.stopPropagation(); setOpen(menu.hidden); });
+    document.addEventListener("click", function (e) { if (!menu.hidden && !menu.contains(e.target)) setOpen(false); });
+    document.addEventListener("keydown", function (e) { if (e.key === "Escape") setOpen(false); });
   })();
 </script>
