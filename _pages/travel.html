@@ -1,0 +1,76 @@
+---
+permalink: /travel/
+author_profile: true
+---
+{% comment %}
+  Travel tab shell. Settings (home pin): contents/travel/page.yml. Trips: contents/travel/trips.yml
+  Map: Leaflet + OpenStreetMap tiles, loaded only on this page.
+  Cards are grouped by year (newest year first), oldest-to-newest within a year.
+  The year is the first 4 characters of each trip's `date` (e.g. "2025/04").
+{% endcomment %}
+{% assign c = site.data.travel.page %}
+{% assign trips = site.data.travel.trips | sort: "date", "last" %}
+{% assign years = trips | group_by_exp: "t", "t.date | slice: 0, 4" | reverse %}
+
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+      integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
+<div id="travel-map" class="travel-map" role="region" aria-label="Map of places I've traveled"></div>
+
+{% for y in years %}
+<section class="trip-year">
+  <h2 class="trip-year__title">{% if y.name != "" %}{{ y.name }}{% else %}Undated{% endif %}</h2>
+  <ul class="trip-list">
+  {% for t in y.items %}
+  <li class="trip-card">
+    {% if t.cover %}<img class="trip-card__cover" src="{{ t.cover | relative_url }}" alt="{{ t.place }}" loading="lazy">{% endif %}
+    <div class="trip-card__body">
+      <div class="trip-card__place">{{ t.place }}</div>
+      {% if t.date %}<div class="trip-card__date">{{ t.date }}</div>{% endif %}
+      {% if t.note %}<div class="trip-card__note">{{ t.note | markdownify | remove: '<p>' | remove: '</p>' }}</div>{% endif %}
+      {% if t.post %}<a class="trip-card__post" href="{{ t.post | relative_url }}">Read the story &rarr;</a>{% endif %}
+    </div>
+  </li>
+  {% endfor %}
+  </ul>
+</section>
+{% endfor %}
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+        integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+<script>
+  (function () {
+    var trips = {{ trips | jsonify }} || [];
+    var el = document.getElementById("travel-map");
+    if (!window.L || !el) return;
+    // Static whole-world view: no dragging, zooming or wrapping.
+    var WORLD = [[-58, -180], [80, 180]];
+    var map = L.map(el, {
+      zoomControl: false, dragging: false, scrollWheelZoom: false, doubleClickZoom: false,
+      boxZoom: false, keyboard: false, touchZoom: false, zoomSnap: 0, maxBounds: WORLD
+    });
+    L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
+      noWrap: true,
+      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+    }).addTo(map);
+    function fitWorld() { map.invalidateSize(); map.fitBounds(WORLD, { padding: [0, 0] }); }
+    fitWorld();
+    window.addEventListener("resize", fitWorld);
+    var home = {{ c.home | jsonify }};
+    if (home && home.latlng && home.latlng.length === 2) {
+      var homeDot = L.circleMarker(home.latlng, { radius: 6, weight: 2, color: "#fff", fillColor: "#1f6feb", fillOpacity: 1 })
+        .bindTooltip("Home" + (home.place ? ": " + home.place : ""), { direction: "top", offset: [0, -4] });
+    }
+    trips.forEach(function (t) {
+      if (!t.latlng || !t.latlng.length) return;
+      // latlng is [lat, lng] or, for a multi-city trip, [[lat, lng], [lat, lng], ...]
+      var points = Array.isArray(t.latlng[0]) ? t.latlng : [t.latlng];
+      points.forEach(function (p) {
+        if (!p || p.length !== 2) return;
+        L.circleMarker(p, { radius: 5, weight: 2, color: "#fff", fillColor: "#e4572e", fillOpacity: 1 })
+          .bindTooltip(t.place + (t.date ? " (" + t.date + ")" : ""), { direction: "top", offset: [0, -4] })
+          .addTo(map);
+      });
+    });
+    if (homeDot) homeDot.addTo(map); // added last so it draws on top of nearby trips
+  })();
+</script>

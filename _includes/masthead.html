@@ -18,6 +18,29 @@
         </ul>
         <ul class="hidden-links hidden"></ul>
       </nav>
+      <!-- outside #site-nav: the greedy-nav script binds to every button inside it -->
+      <button type="button" id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode" title="Toggle dark mode">
+        <i id="theme-icon" class="fas fa-sun" aria-hidden="true"></i>
+      </button>
     </div>
   </div>
 </div>
+<script>
+  (function () {
+    var root = document.documentElement;
+    var btn = document.getElementById("theme-toggle");
+    var icon = document.getElementById("theme-icon");
+    function paint() {
+      var dark = root.getAttribute("data-theme") === "dark";
+      icon.className = dark ? "fas fa-moon" : "fas fa-sun";
+      btn.setAttribute("aria-pressed", dark);
+    }
+    btn.addEventListener("click", function () {
+      var next = root.getAttribute("data-theme") === "dark" ? "light" : "dark";
+      if (next === "dark") root.setAttribute("data-theme", "dark"); else root.removeAttribute("data-theme");
+      try { localStorage.setItem("theme", next); } catch (e) {}
+      paint();
+    });
+    paint();
+  })();
+</script>

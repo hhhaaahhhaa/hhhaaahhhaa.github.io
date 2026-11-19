@@ -1,0 +1,7 @@
+# Travel tab (_pages/travel.html reads this as site.data.travel.page).
+# Trips live in trips.yml; photos for a trip go in contents/travel/<trip>/.
+
+# Home, shown on the map as a blue dot (trips are orange).
+home:
+  place: "Taipei, Taiwan"
+  latlng: [25.033, 121.565]

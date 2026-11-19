@@ -1,0 +1,62 @@
+# One entry per trip, in any order. Shown as a dot on the map and a card in the list.
+# Cards are grouped by year (taken from the first 4 characters of `date`), newest year
+# first, and sorted oldest-to-newest inside each year - so keep dates as "YYYY/MM".
+#   place:  name shown on the card / dot
+#   date:   "YYYY/MM"
+#   latlng: [latitude, longitude] - rough is fine. For a multi-city trip, give a list:
+#           [[lat, lng], [lat, lng]] (one card, one dot per city)
+#   cover:  optional photo, e.g. "/contents/travel/kyoto-2025/cover.jpg"
+#   note:   optional one-liner (Markdown)
+#   post:   optional link to a blog post with the full story, e.g. "/blog/2025/09/kyoto/"
+
+- place: "California, US"
+  date: "2026/08"
+  latlng: [37.45, -122.18]
+
+- place: "Hokkaido, Japan"
+  date: "2026/04"
+  latlng: [43.06, 141.35]
+
+- place: "Hawaii, US"
+  date: "2025/12"
+  latlng: [21.31, -157.86]
+
+- place: "Kyoto, Japan"
+  date: "2025/09"
+  latlng: [35.01, 135.77]
+
+- place: "Kyoto, Japan"
+  date: "2025/07"
+  latlng: [35.01, 135.77]
+
+- place: "Hokkaido, Japan"
+  date: "2025/01"
+  latlng: [43.06, 141.35]
+
+- place: "Brisbane / Sydney, Australia"
+  date: "2024/07"
+  latlng: [[-27.47, 153.03], [-33.87, 151.21]]
+
+- place: "Nagano, Japan"
+  date: "2024/01"
+  latlng: [36.65, 138.18]
+
+- place: "Okinawa, Japan"
+  date: "2023/06"
+  latlng: [26.21, 127.68]
+
+- place: "Incheon, Korea"
+  date: "2022/09"
+  latlng: [37.46, 126.71]
+
+- place: "Cluj-Napoca, Romania"
+  date: "2018/07"
+  latlng: [46.77, 23.59]
+
+- place: "Tokyo, Japan"
+  date: "2017/05"
+  latlng: [35.68, 139.69]
+
+- place: "Buenos Aires, Argentina"
+  date: "2014/12"
+  latlng: [-34.60, -58.38]

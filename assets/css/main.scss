@@ -12,6 +12,7 @@
 
 @import "vendor/breakpoint/breakpoint"; // media query mixins
 @import "variables";
+@import "themes";        // light/dark color custom properties
 @import "mixins";
 @import "vendor/susy/susy";
 
@@ -34,6 +35,7 @@
 @import "archive";
 @import "sidebar";
 @import "home";
+@import "tabs";
 
 @import "vendor/font-awesome/fontawesome";
 @import "vendor/font-awesome/solid";

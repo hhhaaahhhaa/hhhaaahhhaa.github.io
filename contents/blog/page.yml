@@ -1,0 +1,9 @@
+# Blog tab (_pages/blog.html reads this as site.data.blog.page).
+# Posts are Markdown files in contents/blog/_posts/, named YYYY-MM-DD-slug.md.
+# Their URL becomes /blog/YYYY/MM/slug/. Put a post's images in contents/blog/<slug>/.
+
+title: "Blog"
+
+# Markdown, shown above the post list (optional).
+intro: |
+  Notes on research, travel, and everything in between.

@@ -160,6 +160,14 @@ defaults:
     values:
       layout: single
       author_profile: true
+  # Blog posts: contents/blog/_posts/YYYY-MM-DD-slug.md
+  - scope:
+      path: "contents/blog"
+      type: posts
+    values:
+      layout: single
+      author_profile: true
+      permalink: /blog/:year/:month/:title/
 
 
 # Sass/SCSS
@@ -202,12 +210,14 @@ whitelist:
 #  - <base_path>/tags/my-awesome-tag/index.html ~> path: /tags/
 #  - <base_path/categories/my-awesome-category/index.html ~> path: /categories/
 #  - <base_path/my-awesome-category/index.html ~> path: /
-category_archive:
-  type: liquid
-  path: /categories/
-tag_archive:
-  type: liquid
-  path: /tags/
+# Disabled: there are no category/tag archive pages. (Posts under contents/blog/
+# also get "contents"/"blog" categories from their path, which shouldn't be shown.)
+# category_archive:
+#   type: liquid
+#   path: /categories/
+# tag_archive:
+#   type: liquid
+#   path: /tags/
 # https://github.com/jekyll/jekyll-archives
 # jekyll-archives:
 #   enabled:
